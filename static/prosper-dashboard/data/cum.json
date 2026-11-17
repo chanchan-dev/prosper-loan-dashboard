@@ -1,0 +1,58 @@
+[
+  {
+    "Risk_Cluster":0,
+    "Cluster_Name":"Prime – thu nhập cao, có nhà",
+    "so_khoan":10341,
+    "ty_le_vo_no":22.9,
+    "diem_tin_dung":720,
+    "apr":16.2,
+    "dti":0.19,
+    "thu_nhap":8333,
+    "khoan_vay":10000,
+    "lti":0.1,
+    "su_dung_the":56,
+    "ty_le_chu_nha":81
+  },
+  {
+    "Risk_Cluster":1,
+    "Cluster_Name":"Prime – vay nhỏ",
+    "so_khoan":16169,
+    "ty_le_vo_no":22.6,
+    "diem_tin_dung":700,
+    "apr":16.0,
+    "dti":0.14,
+    "thu_nhap":3833,
+    "khoan_vay":4000,
+    "lti":0.09,
+    "su_dung_the":15,
+    "ty_le_chu_nha":38
+  },
+  {
+    "Risk_Cluster":2,
+    "Cluster_Name":"Subprime – thẻ gần hết hạn mức",
+    "so_khoan":22574,
+    "ty_le_vo_no":38.2,
+    "diem_tin_dung":640,
+    "apr":28.5,
+    "dti":0.21,
+    "thu_nhap":3917,
+    "khoan_vay":3250,
+    "lti":0.07,
+    "su_dung_the":85,
+    "ty_le_chu_nha":39
+  },
+  {
+    "Risk_Cluster":3,
+    "Cluster_Name":"Vay quá sức thu nhập",
+    "so_khoan":5987,
+    "ty_le_vo_no":39.6,
+    "diem_tin_dung":700,
+    "apr":20.5,
+    "dti":0.41,
+    "thu_nhap":2833,
+    "khoan_vay":10000,
+    "lti":0.33,
+    "su_dung_the":49,
+    "ty_le_chu_nha":44
+  }
+]

@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Secrets and credentials
+.env
+.env.*
+.streamlit/secrets.toml
+*.key.json
+service-account*.json
+*service_account*.json
+
+# Raw/private data
+*.csv
+*.tsv
+*.xlsx
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

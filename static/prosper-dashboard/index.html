@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prosper Loan Risk Dashboard - Đồ án Nhà kho dữ liệu</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js v4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <!-- Plotly.js CDN (cho biểu đồ PCA 3D ở Trang 2) -->
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Header & Navigation (Gọn trên 1 hàng) -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="header-brand">
+        <div class="brand-title-wrap">
+          <div class="brand-text">
+            <h1>PROSPER LOAN RISK DASHBOARD</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="tabs-nav" aria-label="Dashboard Navigation">
+        <button class="tab-btn active" data-tab="tab1" id="tabBtn1">
+          1. Tổng quan
+        </button>
+        <button class="tab-btn" data-tab="tab2" id="tabBtn2">
+          2. Phân cụm
+        </button>
+        <button class="tab-btn" data-tab="tab3" id="tabBtn3">
+          3. Dự báo rủi ro tín dụng
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Areas -->
+  <main class="main-container">
+    <!-- Vùng Tab 1: Tổng quan -->
+    <div id="tab1" class="tab-content active" role="tabpanel"></div>
+
+    <!-- Vùng Tab 2: Phân cụm (Người 2 triển khai) -->
+    <div id="tab2" class="tab-content" role="tabpanel"></div>
+
+    <!-- Vùng Tab 3: Kết quả mô hình (Người 2 triển khai) -->
+    <div id="tab3" class="tab-content" role="tabpanel"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-source">
+        <span>Nguồn dữ liệu: <strong>Dữ liệu tổng hợp và kết quả mô hình được xuất từ Python</strong></span>
+      </div>
+      <div class="footer-team">
+        <span>Ngày cập nhật: <span id="currentDate">15/11/2026</span> | Đồ án môn Nhà kho dữ liệu</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Bootstrap via ES Module -->
+  <script type="module">
+    import { renderTrang1 } from './js/trang1.js';
+    import { renderTrang2 } from './js/trang2.js';
+    import { renderTrang3 } from './js/trang3.js';
+
+    // Cập nhật ngày tháng hiện tại hiển thị ở chân trang
+    const dateEl = document.getElementById('currentDate');
+    if (dateEl) {
+      const now = new Date();
+      const day = String(now.getDate()).padStart(2, '0');
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const year = now.getFullYear();
+      dateEl.textContent = `${day}/${month}/${year}`;
+    }
+
+    // Quản lý chuyển đổi Tab mượt mà
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = {
+      tab1: { el: document.getElementById('tab1'), render: renderTrang1 },
+      tab2: { el: document.getElementById('tab2'), render: renderTrang2 },
+      tab3: { el: document.getElementById('tab3'), render: renderTrang3 }
+    };
+
+    function switchTab(tabId) {
+      // Cập nhật trạng thái nút bấm Tab
+      tabButtons.forEach(btn => {
+        if (btn.dataset.tab === tabId) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // Ẩn/Hiện nội dung từng Tab
+      Object.keys(tabPanels).forEach(key => {
+        const item = tabPanels[key];
+        if (key === tabId) {
+          item.el.classList.add('active');
+          if (typeof item.render === 'function') {
+            item.render();
+          }
+        } else {
+          item.el.classList.remove('active');
+        }
+      });
+    }
+
+    // Đăng ký sự kiện click tab
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchTab(btn.dataset.tab);
+      });
+    });
+
+    // Khởi chạy mặc định Trang 1
+    renderTrang1();
+  </script>
+</body>
+
+</html>

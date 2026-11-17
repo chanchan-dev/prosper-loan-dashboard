@@ -1,0 +1,17 @@
+# Raw data files
+*.csv
+*.tsv
+*.xlsx
+
+# Security & Credentials
+*.key.json
+.env
+.env.*
+service-account*.json
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+

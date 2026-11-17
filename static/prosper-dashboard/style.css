@@ -1,0 +1,1383 @@
+/* ==========================================================================
+   PROSPER LOAN RISK DASHBOARD - STYLE
+   Bảng màu chủ đạo: Gradient #16487B -> #00ADE3, nền #EEFCFF
+   ========================================================================== */
+
+:root {
+  --primary-dark: #16487B;
+  --primary-blue: #0A6BA8;
+  --primary-light: #00ADE3;
+  --bg-page: #EEFCFF;
+  --card-bg: #FFFFFF;
+  --text-main: #1C2D42;
+  --text-muted: #5A6E85;
+  --border-color: rgba(0, 173, 227, 0.2);
+  --shadow-sm: 0 2px 8px rgba(22, 72, 123, 0.06);
+  --shadow-md: 0 6px 20px rgba(22, 72, 123, 0.08);
+  --shadow-lg: 0 10px 30px rgba(22, 72, 123, 0.12);
+  --danger-color: #E63946;
+  --danger-bg: #FFF0F2;
+  --safe-color: #00ADE3;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --transition-fast: 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   HEADER & NAVBAR
+   ========================================================================== */
+.app-header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+  color: #ffffff;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(22, 72, 123, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.brand-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.brand-text h1 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.brand-text p {
+  font-size: 0.82rem;
+  opacity: 0.88;
+  margin-top: 2px;
+}
+
+.project-badge {
+  background: rgba(255, 255, 255, 0.16);
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   TABS NAVIGATION
+   ========================================================================== */
+.tabs-nav {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.82);
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+}
+
+.tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 -3px 0 #ffffff;
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA
+   ========================================================================== */
+.main-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 1.75rem auto;
+  padding: 0 1.25rem;
+  flex: 1;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   TRANG 1: CONTROLS & FILTER BAR
+   ========================================================================== */
+.trang1-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background: var(--card-bg);
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.section-title h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.section-title span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.select-wrapper {
+  position: relative;
+  min-width: 260px;
+}
+
+.state-select {
+  width: 100%;
+  appearance: none;
+  background-color: var(--bg-page);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 2.2rem 0.6rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.state-select:hover,
+.state-select:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(0, 173, 227, 0.2);
+}
+
+.select-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--primary-dark);
+}
+
+/* ==========================================================================
+   KPI CARDS GRID
+   ========================================================================== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.kpi-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary-light));
+}
+
+.kpi-card.risk-card::before {
+  background: linear-gradient(90deg, #E63946, #FF758F);
+}
+
+.kpi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.kpi-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kpi-value {
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-card.risk-card .kpi-value {
+  color: var(--danger-color);
+}
+
+.kpi-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.kpi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(0, 173, 227, 0.12);
+  color: var(--primary-dark);
+}
+
+.kpi-badge.risk-badge {
+  background: var(--danger-bg);
+  color: var(--danger-color);
+}
+
+/* ==========================================================================
+   CHARTS GRID & CARDS
+   ========================================================================== */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card-header {
+  margin-bottom: 1rem;
+}
+
+.chart-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chart-card-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.chart-legend-box {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.legend-line {
+  width: 16px;
+  height: 2px;
+  background-color: var(--danger-color);
+  border-style: dashed;
+}
+
+.chart-canvas-container {
+  position: relative;
+  flex: 1;
+  min-height: 380px;
+  width: 100%;
+}
+
+.chart-insight-box {
+  margin-top: 1.1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  background: #F4FBFE;
+  border-left: 4px solid var(--primary-light);
+  font-size: 0.86rem;
+  color: var(--primary-dark);
+  line-height: 1.45;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.chart-insight-box.warning-insight {
+  background: #FFF7F6;
+  border-left-color: var(--danger-color);
+}
+
+/* ==========================================================================
+   PLACEHOLDER CARDS FOR TAB 2 & TAB 3
+   ========================================================================== */
+.placeholder-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 3.5rem 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px dashed rgba(0, 173, 227, 0.4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.placeholder-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.placeholder-desc {
+  max-width: 520px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.placeholder-tag {
+  background: rgba(22, 72, 123, 0.08);
+  color: var(--primary-dark);
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.app-footer {
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-color);
+  padding: 1.25rem 1.5rem;
+  margin-top: auto;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-source {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+}
+
+.footer-source strong {
+  color: var(--primary-dark);
+}
+
+.footer-team {
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   LOADING & ERROR STATES
+   ========================================================================== */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  gap: 1rem;
+  color: var(--primary-blue);
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(0, 173, 227, 0.2);
+  border-top-color: var(--primary-light);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  background: var(--danger-bg);
+  border: 1px solid rgba(230, 57, 70, 0.3);
+  color: var(--danger-color);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  font-size: 0.92rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Mobile & Tablet)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chart-canvas-container {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .trang1-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .select-wrapper {
+    min-width: 100%;
+  }
+
+  .brand-text h1 {
+    font-size: 1.15rem;
+  }
+
+  .tabs-nav {
+    gap: 0.25rem;
+  }
+
+  .tab-btn {
+    padding: 0.6rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   TRANG 2: PHÂN CỤM KHÁCH HÀNG (CLUSTERING)
+   ========================================================================== */
+.cluster-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.15rem;
+  margin-bottom: 1.75rem;
+}
+
+.cluster-card {
+  cursor: pointer;
+  user-select: none;
+  border: 2px solid var(--border-color);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.cluster-card .kpi-value {
+  font-size: 1.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.cluster-name-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+  min-height: 2.5rem;
+}
+
+.cluster-sub-metrics {
+  margin-top: 0.65rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed rgba(0, 173, 227, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.cluster-sub-metrics strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.cluster-card.is-selected {
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 0 3px rgba(22, 72, 123, 0.22), var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.cluster-card.risk-card.is-selected {
+  border-color: var(--danger-color);
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.25), var(--shadow-md);
+}
+
+.cluster-card.is-dimmed {
+  opacity: 0.52;
+}
+
+.clear-cluster-btn {
+  background: var(--bg-page);
+  color: var(--primary-dark);
+  border: 1.5px solid var(--primary-light);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.95rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.clear-cluster-btn:hover {
+  background: var(--primary-dark);
+  color: #ffffff;
+  border-color: var(--primary-dark);
+}
+
+.clear-cluster-btn[hidden] {
+  display: none;
+}
+
+.cluster-section-card {
+  margin-bottom: 1.75rem;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.cluster-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  min-width: 880px;
+  background: var(--card-bg);
+}
+
+.cluster-table th,
+.cluster-table td {
+  padding: 0.75rem 0.85rem;
+  text-align: right;
+  border-bottom: 1px solid rgba(0, 173, 227, 0.14);
+  font-variant-numeric: tabular-nums;
+}
+
+.cluster-table th:first-child,
+.cluster-table td:first-child {
+  text-align: left;
+}
+
+.cluster-table thead th {
+  background: #F4FBFE;
+  color: var(--primary-dark);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.cluster-table tbody tr {
+  transition: background-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.cluster-table tbody tr:hover {
+  background-color: rgba(0, 173, 227, 0.06);
+}
+
+.cluster-table tbody tr.is-selected {
+  background-color: rgba(0, 173, 227, 0.18);
+  font-weight: 600;
+}
+
+.cluster-table tbody tr.is-selected td:first-child {
+  box-shadow: inset 4px 0 0 var(--primary-dark);
+}
+
+.cluster-quality-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.cluster-quality-list li {
+  position: relative;
+  padding: 0.75rem 1rem 0.75rem 2.1rem;
+  background: #F4FBFE;
+  border-left: 4px solid var(--primary-blue);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.cluster-quality-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0.85rem;
+  top: 0.7rem;
+  color: var(--primary-light);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 1100px) {
+  .cluster-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cluster-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   TRANG 3: KẾT QUẢ MÔ HÌNH DỰ BÁO (MODEL RESULTS & LIGHTBOX)
+   ========================================================================== */
+.model-table {
+  min-width: 680px;
+}
+
+.model-table tbody tr {
+  cursor: default;
+}
+
+.model-table tbody tr.model-row-selected {
+  background-color: rgba(0, 173, 227, 0.13);
+}
+
+.model-table tbody tr.model-row-selected td:first-child {
+  box-shadow: inset 4px 0 0 var(--primary-dark);
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.model-selected-badge {
+  display: inline-block;
+  margin-left: 0.45rem;
+  padding: 0.12rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 10px;
+  background: var(--primary-dark);
+  color: #ffffff;
+  vertical-align: middle;
+}
+
+.model-subtable-wrap {
+  margin-top: 1.35rem;
+  padding-top: 1.15rem;
+  border-top: 1px dashed rgba(0, 173, 227, 0.3);
+}
+
+.model-subtable-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 0.6rem;
+}
+
+.model-image-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #F9FDFF;
+  border: 1px solid rgba(0, 173, 227, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  flex: 1;
+}
+
+.model-zoomable-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
+  border-radius: 6px;
+  cursor: zoom-in;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.model-zoomable-img:hover {
+  transform: scale(1.01);
+  box-shadow: var(--shadow-md);
+}
+
+.model-img-hint {
+  margin-top: 0.45rem;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.image-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15, 29, 48, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  cursor: zoom-out;
+  animation: fadeIn 0.18s ease-out;
+}
+
+.image-lightbox-overlay[hidden] {
+  display: none;
+}
+
+.image-lightbox-content {
+  max-width: 92vw;
+  max-height: 86vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  padding: 0.5rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  cursor: default;
+}
+
+.image-lightbox-caption {
+  margin-top: 0.75rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ==========================================================================
+   CẬP NHẬT HEADER GỌN, LAYOUT TRẢI KÍN & TRANG 1 CUBE DASHBOARD
+   ========================================================================== */
+.app-header {
+  padding: 0 20px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 100%;
+}
+
+.brand-text h1 {
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+}
+
+.tabs-nav {
+  border-bottom: none;
+  height: 100%;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.tab-btn {
+  padding: 0.55rem 1rem;
+  font-size: 0.88rem;
+  border-radius: 8px 8px 0 0;
+}
+
+.main-container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0.75rem auto 1.25rem auto;
+  padding: 0 20px;
+}
+
+.footer-container {
+  max-width: 100%;
+  padding: 0 4px;
+}
+
+/* Thanh lọc gọn Trang 1 (1 hàng, sát dưới header, sticky ~48px) */
+.t1-filter-bar {
+  position: sticky;
+  top: 58px;
+  z-index: 90;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  min-height: 48px;
+  padding: 0.35rem 0.9rem;
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.t1-filter-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.t1-filter-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.t1-select {
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  cursor: pointer;
+  outline: none;
+  min-width: 185px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.t1-select:hover,
+.t1-select:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 2px rgba(0, 173, 227, 0.18);
+}
+
+.t1-reset-btn {
+  background: var(--bg-page);
+  color: var(--primary-dark);
+  border: 1px solid var(--primary-light);
+  border-radius: 6px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.t1-reset-btn:hover {
+  background: var(--primary-dark);
+  color: #ffffff;
+  border-color: var(--primary-dark);
+}
+
+.t1-filter-status {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Hàng 1: 4 thẻ KPI gọn */
+.t1-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 0.95rem;
+}
+
+.t1-kpi-grid .kpi-card {
+  padding: 0.9rem 1.15rem;
+}
+
+.t1-kpi-grid .kpi-header {
+  margin-bottom: 0.4rem;
+}
+
+.t1-kpi-grid .kpi-title {
+  font-size: 0.78rem;
+}
+
+.t1-kpi-grid .kpi-value {
+  font-size: 1.65rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Hàng 2: 3 biểu đồ cạnh nhau */
+.t1-row2-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.95rem;
+  margin-bottom: 0.95rem;
+}
+
+/* Hàng 3: Biểu đồ bang chiếm 2 cột, cột 3 xếp 2 biểu đồ (APR và Prosper Score) */
+.t1-row3-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.95rem;
+  margin-bottom: 1rem;
+  align-items: stretch;
+}
+
+.t1-col-span-2 {
+  grid-column: span 2;
+}
+
+.t1-right-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.t1-right-stack .chart-card {
+  flex: 1;
+}
+
+.t1-chart-card {
+  padding: 1rem 1.15rem;
+}
+
+.t1-chart-card .chart-card-header {
+  margin-bottom: 0.55rem;
+}
+
+.t1-chart-card .chart-card-title {
+  font-size: 0.95rem;
+}
+
+.t1-chart-card .chart-card-subtitle {
+  font-size: 0.76rem;
+  margin-top: 0.15rem;
+}
+
+.t1-chart-card .chart-insight-box {
+  margin-top: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.79rem;
+}
+
+.t1-canvas-sm {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  min-height: 220px;
+}
+
+.t1-canvas-lg {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  min-height: 450px;
+  flex: 1;
+}
+
+.t1-canvas-xs {
+  position: relative;
+  width: 100%;
+  height: 155px;
+  min-height: 155px;
+}
+
+.t1-chart-note {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .app-header {
+    height: auto;
+    padding: 0.55rem 16px;
+  }
+
+  .header-container {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .t1-filter-bar {
+    position: static;
+  }
+
+  .t1-kpi-grid,
+  .t1-row2-grid,
+  .t1-row3-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .t1-col-span-2 {
+    grid-column: span 1;
+  }
+
+  .t1-canvas-lg {
+    height: 380px;
+    min-height: 380px;
+  }
+}
+
+/* ==========================================================================
+   CẬP NHẬT TRANG 2: LƯỚI 2 CỘT (>= 768PX), RADAR, DONUT & PCA 3D/2D
+   ========================================================================== */
+.t2-two-col-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.t2-bar-canvas {
+  position: relative;
+  width: 100%;
+  height: 255px;
+  min-height: 255px;
+}
+
+.t2-mid-canvas {
+  position: relative;
+  width: 100%;
+  height: 310px;
+  min-height: 310px;
+}
+
+.t2-pca-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.t2-mode-switch {
+  display: inline-flex;
+  background: var(--bg-page);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.t2-mode-btn {
+  border: none;
+  background: transparent;
+  color: var(--primary-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.t2-mode-btn:hover {
+  background: rgba(0, 173, 227, 0.12);
+}
+
+.t2-mode-btn.active {
+  background: var(--primary-dark);
+  color: #ffffff;
+}
+
+.t2-pca-3d-box {
+  width: 100%;
+  height: 480px;
+  min-height: 480px;
+  position: relative;
+}
+
+.t2-pca-2d-box {
+  width: 100%;
+  height: 440px;
+  min-height: 440px;
+  position: relative;
+}
+
+.t2-fallback-notice {
+  margin-bottom: 0.65rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: #FFF7F6;
+  border-left: 3px solid var(--danger-color);
+  color: var(--danger-color);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+@media (max-width: 767.98px) {
+  .t2-two-col-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .t2-pca-3d-box {
+    height: 390px;
+    min-height: 390px;
+  }
+}
+
+/* ==========================================================================
+   HOÀN THIỆN CUỐI: CĂN LỀ TIÊU ĐỀ SÁT TRÁI, ẢNH SHAP & NÚT ĐÓNG LIGHTBOX
+   ========================================================================== */
+.chart-card-title {
+  display: block;
+  gap: 0;
+}
+
+.tab-btn {
+  gap: 0;
+}
+
+.chart-insight-box {
+  display: block;
+}
+
+.model-shap-img {
+  width: 100%;
+  max-height: 640px;
+  object-fit: contain;
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(22, 72, 123, 0.85);
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.image-lightbox-close:hover {
+  background: var(--danger-color);
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   TRANG 3: BỐ CỤC LƯỚI 2 CỘT (>= 900PX) CHO BẢNG & 6 ẢNH MÔ HÌNH
+   ========================================================================== */
+.t3-row-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+  margin-bottom: 1.25rem;
+  align-items: stretch;
+}
+
+.t3-row-grid .model-table {
+  min-width: 520px;
+}
+
+.model-img-missing {
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-page);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.model-img-missing[hidden] {
+  display: none;
+}
+
+@media (max-width: 899.98px) {
+  .t3-row-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+

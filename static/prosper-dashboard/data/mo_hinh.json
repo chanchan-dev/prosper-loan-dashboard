@@ -1,0 +1,73 @@
+{
+  "split": {
+    "train": 38549,
+    "validation": 8261,
+    "test": 8261,
+    "ty_le_vo_no": 30.9
+  },
+  "threshold": 0.442,
+  "test": {
+    "roc_auc": 0.765,
+    "pr_auc": 0.591,
+    "accuracy": 65.1,
+    "precision": 46.1,
+    "recall": 77.1,
+    "f1": 57.7,
+    "tn": 3408,
+    "fp": 2302,
+    "fn": 584,
+    "tp": 1967
+  },
+  "so_sanh_mac_dinh": [
+    {
+      "mo_hinh": "XGBoost",
+      "accuracy": 68.3,
+      "precision": 49.1,
+      "recall": 71.5,
+      "f1": 58.2,
+      "roc_auc": 0.763,
+      "pr_auc": 0.585
+    },
+    {
+      "mo_hinh": "Random Forest",
+      "accuracy": 72.6,
+      "precision": 56.3,
+      "recall": 50.8,
+      "f1": 53.4,
+      "roc_auc": 0.758,
+      "pr_auc": 0.575
+    },
+    {
+      "mo_hinh": "Logistic Regression",
+      "accuracy": 65.7,
+      "precision": 46.4,
+      "recall": 70.8,
+      "f1": 56.1,
+      "roc_auc": 0.741,
+      "pr_auc": 0.545
+    }
+  ],
+  "so_sanh_nguong": [
+    {
+      "mo_hinh": "XGBoost",
+      "nguong": 0.442,
+      "precision": 45.9,
+      "recall": 80.1,
+      "f1": 58.4
+    },
+    {
+      "mo_hinh": "Random Forest",
+      "nguong": 0.338,
+      "precision": 44.9,
+      "recall": 80.1,
+      "f1": 57.5
+    },
+    {
+      "mo_hinh": "Logistic Regression",
+      "nguong": 0.442,
+      "precision": 43.7,
+      "recall": 80.1,
+      "f1": 56.5
+    }
+  ]
+}
